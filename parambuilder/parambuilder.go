@@ -1,3 +1,4 @@
+// parambuilder helper package to convert user input into query parameter
 package parambuilder
 
 import (
@@ -5,9 +6,10 @@ import (
     "strconv"
 )
 
+//GetParamStringFromUserInput returns the query parameter string based on the user input after normalising it
 func GetParamStringFromUserInput(data inputhandler.LonLatRad) string {
-    paramResult := "lon:[" + data.Lon + " TO " + calculateRange(data.Lon, data.Rad, "lon")
-    paramResult += "] AND lat:[" + data.Lat + " TO " + calculateRange(data.Lat, data.Rad, "lat") + "]"
+    paramResult := "lon:[" + data.Lon + " TO " + calculateRange(data.Lon, data.Rng, "lon")
+    paramResult += "] AND lat:[" + data.Lat + " TO " + calculateRange(data.Lat, data.Rng, "lat") + "]"
 
     return paramResult
 }

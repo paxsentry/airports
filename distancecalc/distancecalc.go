@@ -38,7 +38,7 @@ func OrderData(airports httpgrabber.JsonData, starting inputhandler.LonLatRad) O
         response.Airports = append(response.Airports, airport)
     }
 
-    sort.SliceStable(response.Airports, func(i, j int) bool {
+    sort.Slice(response.Airports, func(i, j int) bool {
         return response.Airports[i].Distance < response.Airports[j].Distance
     })
 

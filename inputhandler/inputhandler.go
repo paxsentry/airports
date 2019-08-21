@@ -13,7 +13,7 @@ import (
 type LonLatRad struct {
     Lon string
     Lat string
-    Rad string
+    Rng string
 }
 
 type validationResult struct {
@@ -53,10 +53,10 @@ func GetUserInput() LonLatRad {
 
     for {
         fmt.Println("Please enter range around the center point:")
-        rad, _ := reader.ReadString('\n')
-        answer = convertAndValidate(&rad, "rad")
+        rng, _ := reader.ReadString('\n')
+        answer = convertAndValidate(&rng, "rad")
         if answer.IsValid {
-            response.Rad = TrimSuffix(rad, "\n")
+            response.Rng = TrimSuffix(rng, "\n")
             break
         }
         fmt.Println(answer.ErrorMsg)
